@@ -70,7 +70,7 @@ $result = Prijava::getAll($conn);
                             </tr>
                         </thead>
                         <tbody>
-                            <?php while ($red = $result->fetch_array()) { ?>
+                            <?php if($result->num_rows > 0){ while ($red = $result->fetch_array()) { ?>
                                 <tr>
                                     <td><?php echo $red["predmet"] ?></td>
                                     <td><?php echo $red["katedra"] ?></td>
@@ -83,11 +83,13 @@ $result = Prijava::getAll($conn);
                                         </label>
                                     </td>
                                 </tr>
-                            <?php } ?>
-                            ?>
+                            <?php } 
+                        } else { ?>
+                                
                             <tr>
                                 <td colspan="5" class="text-center">Nema unetih kolokvijuma</td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
 
