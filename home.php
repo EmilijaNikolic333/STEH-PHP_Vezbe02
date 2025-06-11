@@ -1,4 +1,6 @@
 <?php
+require "dbBroker.php";
+require "model/prijava.php";
 
 session_start();
 
@@ -12,6 +14,13 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'log_out'){
     header('Location: index.php');
     exit();
 }
+
+//ako nije static metoda
+// $prijava = new Prijava(hbdjbjs);
+// $prijava->getAll($conn);
+
+$result = Prijava::getAll($conn);
+
 
 ?>
 
