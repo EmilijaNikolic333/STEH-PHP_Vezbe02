@@ -7,7 +7,7 @@ class Prijava{
     public $sala;
     public $datum;
 
-    public function __construct($id, $predmet, $katedra, $sala, $datum) {
+    public function __construct($id, $predmet = null, $katedra = null, $sala = null, $datum = null) {
         $this->id = $id;
         $this->predmet = $predmet;
         $this->katedra = $katedra;
@@ -21,6 +21,11 @@ class Prijava{
         return $conn->query(($q));
 
 
+    }
+
+    public function deletById(int $id, mysqli $conn){
+        $q = "DELETE FROM prijave WHERE id = $id";
+        return $conn->query($q);
     }
 
 }
