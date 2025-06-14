@@ -35,6 +35,19 @@ class Prijava{
         return $conn->query($q);
     }
 
+    //READ ONE
+    private function readOne(int $id, mysqli $conn){
+        $q = "SELECT * FROM prijave WHERE id = $id";
+        return $conn->query(($q));
+    }
+
+
+    //UPDATE
+    public function updatePrijava(Prijava $p, mysqli $conn){
+        $q = "UPDATE prijave SET predmet = '$p->predmet', katedra = '$p->katedra', sala = '$p->sala', datum = '$p->datum' WHERE id = $p->id";
+        return $conn->query($q);
+    }
+
 }
 
 
