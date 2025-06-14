@@ -2,6 +2,7 @@
 require "dbBroker.php";
 require "model/prijava.php";
 require "handler/delete.php";
+require "handler/add.php";
 
 session_start();
 
